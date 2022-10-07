@@ -41,3 +41,51 @@ Complete the approved Pull Request, or implement the required changes
 # https://tailwindcss.com/
 
 # https://getbootstrap.com/docs/5.2/getting-started/vite/
+
+
+
+## 1. remove
+
+delete the file counter.js
+delete app in index
+delete all in style.ss
+delete all inn main.js except import
+
+
+## 2. check if project is running
+
+npm i
+npm fund
+npm run build (build dist folder)
+npm run dev
+
+## 3. GET tailwind
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+
+remove module on json file
+change name on to tailwind.config.js
+create postcss.config.js
+ - add "
+ module.exports = {
+    plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+    }
+}
+"
+
+add to style.css
+"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+"
+
+change tailwind.config.js and change content
+"
+content: ["./*.{html,js}"],
+"
+
+npm run dev
