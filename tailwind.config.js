@@ -9,6 +9,7 @@ module.exports = {
       darkblue: '#131837',
       darkblue2: '#1C2146',
       lightblue: '#5D6AE0',
+      purple: '#6371EC'
     },
     borderRadius: {
       large: '40px',
@@ -19,6 +20,14 @@ module.exports = {
       md: '768px',
       lg: '977px',
       xl: '1441px',
+    },
+    borderRadius: {
+      'none': '0',
+      'sm': '0.125rem',
+      'md': '0.375rem',
+      'lg': '0.5rem',
+      'full': '9999px',
+      'large': '12px',
     },
     extend: {
       backgroundImage: {
