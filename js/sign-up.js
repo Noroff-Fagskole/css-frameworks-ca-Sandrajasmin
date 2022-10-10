@@ -1,5 +1,3 @@
-import '../style.css'
-
 const contactForm = document.querySelector("#contact-form");
 
 //First Name
