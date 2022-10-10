@@ -13,6 +13,7 @@
     <title>Friendzie | Stay in touch with your friends</title>
   </head>
   <body class="bg-darkblue mb-20 h-full">
+    <script type="module" src="./js/sign-in.js"></script>
     <script type="module" src="./js/main.js"></script>
     <!-- NAV BAR -->
     <nav class="nav nav max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -54,13 +55,11 @@
           >
             Sign in to your account
           </h2>
-          <p id="general-error-message" class="text-2xl text-red capitalize"></p>
+          <p id="general-error" class="text-2xl text-red capitalize"></p>
           <!-- FORM -->
           <form
-            id="singIn__form"
-            class="main__form mt-8 space-y-6"
-            method="POST"
-          >
+            id="signIn__form"
+            class="main__form mt-8 space-y-6">
             <input type="hidden" name="remember" value="true" />
             <div class="SignIn__form--details -space-y-px rounded-md shadow-sm">
               <div class="form__email">
@@ -71,16 +70,13 @@
                   type="email"
                   autocomplete="email"
                   required
-                  class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 ocus:border-lightblue focus:outline-none focus:ring-lightblue sm:text-sm mb-5"
+                  class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 ocus:border-lightblue focus:outline-none focus:ring-lightblue sm:text-sm"
                   placeholder="Email address"
                 />
                 <span id="emailError" class="hidden text-sm text-red"
                   >Please enter your email</span
                 >
-                <span
-                  id="emailNotValid"
-                  class="hidden text-sm text-red"
-                >
+                <span id="emailNotValid" class="hidden text-sm text-red">
                   Email is not valid must be a valid stud.noroff.no or noroff.no
                   email address
                 </span>
@@ -93,10 +89,10 @@
                   type="password"
                   autocomplete="current-password"
                   required
-                  class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-lightblue focus:outline-none focus:ring-lightblue sm:text-sm"
+                  class="relative block w-full appearance-none rounded-none mt-5 rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-lightblue focus:outline-none focus:ring-lightblue sm:text-sm"
                   placeholder="Password"
                 />
-                <span id="passwordError" class="hidden text-sm text-red-50"
+                <span id="passwordError" class="hidden text-sm text-red"
                   >Please enter your password</span
                 >
               </div>
@@ -136,7 +132,7 @@
               </button>
               <a
                 class="flex w-full justify-center rounded-md bg-purple mt-4 py-2 px-4 font-inter text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                href="/singup.html"
+                href="/sign-up.html"
                 >Create account</a
               >
             </div>

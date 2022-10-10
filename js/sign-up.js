@@ -1,3 +1,7 @@
+import '/style.css'
+
+import { USER_SIGNUP_URL } from './settings/api';
+import { passwordValidator, emailValidator} from './utils/validation';
 const contactForm = document.querySelector("#contact-form");
 
 //First Name
@@ -68,7 +72,13 @@ contactForm.addEventListener("submit", function (event) {
     }
 
     let isValidPasswordMatch = false;
-    isValidPasswordMatch = passwordValidator(); // true // false
+    isValidPasswordMatch = passwordValidator(password.value, confirmPassword.value);// true // false
+    if (isValidPasswordMatch){
+        passwordDontMatch.classList.add("hidden");
+        isValidPasswordMatch = true;
+    } else {
+        passwordDontMatch.classList.add("hidden");
+    }
 
     let isFormValid = isFirstName &&
         isEmail &&
@@ -115,31 +125,3 @@ contactForm.addEventListener("submit", function (event) {
         console.log("Validation FAILED!! 💩");
     }
 });
-
-function emailValidator(email) {
-    const regEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(stud.noroff.no|noroff.no)$/;
-    if (email.match(regEx)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function passwordValidator() {
-    const passwordValue = password.value;
-    const confirmPasswordValue = confirmPassword.value;
-
-    if (!passwordValue) {
-        return false;
-    }
-    if (!confirmPasswordValue) {
-        return false;
-    }
-    if (passwordValue !== confirmPasswordValue) {
-        passwordDontMatch.classList.remove("hidden");
-        return false;
-    } else {
-        passwordDontMatch.classList.add("hidden");
-        return true;
-    }
-}

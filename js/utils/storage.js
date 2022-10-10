@@ -1,23 +1,23 @@
 const tokenKey = "token";
 const userKey = "user";
 
-function saveToken(token) {
+function saveMyToken(token) {
     console.log("token: ", token)
     console.log("tokenKey: ", tokenKey)
-    saveToStorage(tokenKey, token);
+    saveToMyStorage(tokenKey, token);
 }
 
-function getToken() {
-    return getFromStorage(tokenKey);
+function getMyToken() {
+    return getFromMyStorage(tokenKey);
 }
 
 // save user object
-function saveUser(user) {
-    saveToStorage(userKey, user);
+function saveMyUser(user) {
+    saveToMyStorage(userKey, user);
 }
 
-function getUserName() {
-    const user = getFromStorage(userKey);
+function getMyUserName() {
+    const user = getFromMyStorage(userKey);
     if (userKey) {
         return user.name
     } else {
@@ -26,14 +26,14 @@ function getUserName() {
 }
 
 // function which save data to the local storage
-function saveToStorage(key, value) {
+function saveToMyStorage(key, value) {
     console.log(key)
     console.log(value)
     localStorage.setItem(key, JSON.stringify(value))
 }
 
 // function which gets data from the local storage
-function getFromStorage(key) {
+function getFromMyStorage(key) {
     const value = localStorage.getItem(key);
     if (value) {
         return JSON.parse(value); // convert to JS
@@ -42,4 +42,4 @@ function getFromStorage(key) {
     }
 }
 
-export {getToken, saveToken, saveUser, getUserName}
+export {getMyToken, saveMyToken, saveMyUser, getMyUserName}
