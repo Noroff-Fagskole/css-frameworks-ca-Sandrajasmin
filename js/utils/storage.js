@@ -42,4 +42,8 @@ function getFromMyStorage(key) {
     }
 }
 
-export {getMyToken, saveMyToken, saveMyUser, getMyUserName}
+function clearStorage() {
+    localStorage.clear();
+}
+
+export {getMyToken, saveMyToken, saveMyUser, getMyUserName, clearStorage}

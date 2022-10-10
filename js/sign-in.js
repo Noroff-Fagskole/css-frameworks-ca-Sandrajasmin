@@ -16,84 +16,83 @@ const passwordError = document.querySelector("#passwordError");
 //general error
 const generalError = document.querySelector("#general-error");
 
-if(signInForm) {
+if (signInForm) {
     signInForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        //Error for not entered email
         let isEmail = false;
-        if (email.value.trim().lenght > 0) {
+        if (email.value.trim().length > 0) {
             emailError.classList.add("hidden");
             isEmail = true;
         } else {
             emailError.classList.remove("hidden");
         }
 
-        //Error for not valid email
         let isValidEmail = false;
-        if (email.value.trim().lenght && emailValidator(email.value) === true) {
+        if (email.value.trim().length && emailValidator(email.value) === true) {
             emailNotValid.classList.add("hidden");
             isValidEmail = true;
-        } else if(email.value.trim().lenght && emailValidator(email.value) !== true){
+        } else if (email.value.trim().length && emailValidator(email.value) !== true) {
             emailNotValid.classList.remove("hidden");
         }
-        
-        //error for not valid password
+
         let isPassword = false;
-        if (password.value.trim().lenght >= 8) {
+
+        if (password.value.trim().length >= 8) {
             passwordError.classList.add("hidden");
             isPassword = true;
         } else {
             passwordError.classList.remove("hidden");
         }
 
-        //form valid
-        let ifFormIsValid = isEmail && isValidEmail && isPassword;
-        if (ifFormIsValid) {
-            console.log("validation succeeded");
+        let isFormValid = isEmail && isValidEmail && isPassword;
+
+        if (isFormValid) {
+            console.log("Validation SUCCEEDED!!  🥳");
             const userData = {
                 "email": email.value,
                 "password": password.value
             }
 
-            const LOGIN_USER_URL_ENDPOINT = `${USER_LOGIN_URL}`
+            const LOGIN_USER_URL_ENDPOINT = `${USER_LOGIN_URL}`;
 
             (async function logInUser() {
-                const response = await fetch (LOGIN_USER_URL_ENDPOINT, {
+                const response = await fetch(LOGIN_USER_URL_ENDPOINT, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(userData)
                 });
+
                 if (response.ok) {
                     const data = await response.json();
 
-                    console.log("Data: LOL", data);
-                    console.log("AccessToken", data.accessToken);
-
-                    //save token
-                    saveMyToken(data.accessToken)
-                    //save user
-                    const userForSave = {
+                    console.log(data);
+                    console.log(data.accessToken)
+                    // save Token
+                    saveMyToken(data.accessToken);
+                    // save user
+                    const userToSave = {
                         name: data.name,
                         email: data.email
                     }
-                    console.log(userForSave);
-                    saveMyUser(userForSave);
-                    console.log("POST REQUEST LOGIN SUCCEEDED");
-                    location.href = "/home.html"
+                    console.log(userToSave);
+                    saveMyUser(userToSave);
+                    console.log("POST REQUEST LOGIN SUCCEEDED!!  🥳 🤗🤗");
+                    location.href = "/welcome.html"
                 } else {
                     const err = await response.json();
-                    const message = `An error occurred: ${err.massage}`;
-                    console.log("post request login failed...");
+                    const message = `An error occurred: ${err.message}`;
+                    console.log("POST REQUEST LOGIN Failed!!  💩");
                     throw new Error(message);
                 }
             })().catch(err => {
                 generalError.innerHTML = `Sorry !! ${err.message}`
             });
+
         } else {
             console.log("Validation FAILED!! 💩");
         }
-    })
+    });
 }
