@@ -1,6 +1,7 @@
 import '/style.css'
 
 import { USER_SIGNUP_URL } from './settings/api';
+console.log(USER_SIGNUP_URL);
 import { passwordValidator, emailValidator} from './utils/validation';
 const contactForm = document.querySelector("#contact-form");
 
@@ -12,7 +13,6 @@ const firstNameError = document.querySelector("#firstNameError");
 const email = document.querySelector("#email-address");
 const emailError = document.querySelector("#emailError");
 const emailNotValid = document.querySelector("#emailError2");
-console.log(emailError);
 
 //const email = document.querySelector("#email-address")
 const password = document.querySelector("#password");
@@ -93,35 +93,36 @@ contactForm.addEventListener("submit", function (event) {
         const userData = {
             "name": firstName.value,
             "email": email.value,
-            "password": password.value
-        }
+            "password": password.value,
+        }        
 
-        const REGISTER_USER_URL_ENDPOINT = "https://nf-api.onrender.com/api/v1/social/auth/register";
+        const REGISTER_USER_URL_ENDPOINT = USER_SIGNUP_URL;
 
         (async function signUp() {
-            const response = await fetch(REGISTER_USER_URL_ENDPOINT, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(userData)
-            });
+            try {
+                const response = await fetch(REGISTER_USER_URL_ENDPOINT, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(userData)
+                });
 
-            if (response.ok) {
                 const data = await response.json();
-                console.log("POST REQUEST SUCCEEDED!!  🥳 🤗🤗");
-                return data;
-            } else {
-                const err = await response.json();
-                const message = `An error occurred: ${err.message}`;
-                console.log("POST REQUEST Failed!!  💩");
-                throw new Error(message);
+
+                if (response.ok) {
+                    console.log("POST REQUEST SUCCEEDED!!  🥳 🤗🤗");
+                    location.replace("/index.html")
+                } else {
+                    generalError.innerHTML = `Sorry !! ${data.message}`
+                }
+            } catch (e) {
+                console.log(e);
             }
-        })().catch(err => {
-            generalError.innerHTML = `Sorry, an error happened ${err.message}`
-        });
+        })();
 
     } else {
         console.log("Validation FAILED!! 💩");
     }
 });
+

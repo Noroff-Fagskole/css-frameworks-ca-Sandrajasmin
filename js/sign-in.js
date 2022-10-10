@@ -68,7 +68,7 @@ if(signInForm) {
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    
+
                     console.log("Data: LOL", data);
                     console.log("AccessToken", data.accessToken);
 
