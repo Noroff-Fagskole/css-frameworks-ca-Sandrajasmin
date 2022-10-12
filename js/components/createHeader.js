@@ -18,8 +18,8 @@ function createHeader() {
             <i class="fas fa-user-alt ml-2" style="font-size:20px; color:#5D6AE0">
                 <a href="/my-posts.html" class="${pathname === "/my-posts.html" ? "" : ""}"></a>
             </i>
-            <li class="fas fa-door-open ml-2 p-8" style="font-size:20px; color:#5D6AE0"><button id="logout-btn"></button></li>
-            <li class="p-8 mt-1 font-light text-white"><span>Hello 👋  ${userName}</span></li>
+            <li class="fas fa-door-open ml-2" style="font-size:20px; color:#5D6AE0"><button id="logout-btn"></button></li>
+            <li class="mt-1 font-light text-white"><span>Hello 👋  ${userName}</span></li>
             `
             postDetail = `
             <li class="p-8">
@@ -27,17 +27,13 @@ function createHeader() {
             </li>
             `
         }
-        // profileDetails.innerHTML = `
-        // <ul class="flex">
-        //    ${profileLinks}
-        // </ul>`
         profileActions.innerHTML = `
         <ul>
             ${navLink}
         </ul>
         `
         postDetails.innerHTML = `
-        <ul class=" block p-2.5 w-full text-center text-sm text-white placeholder-white pl-10" style="background-image: url(/img/pattern.png)">
+        <ul class=" block p-2.5 rounded-md w-full text-center text-sm text-white placeholder-white pl-10" style="background-image: url(/img/pattern.png)">
             ${postDetail}
         </ul>
         `

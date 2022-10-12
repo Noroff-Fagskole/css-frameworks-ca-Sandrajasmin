@@ -1,6 +1,6 @@
 import '/style.css'
 
-import{clearStorage} from "./utils/storage";
+import{clearMyStorage} from "./utils/storage";
 import createHeader from "./components/createHeader";
 
 createHeader();
