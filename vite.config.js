@@ -9,6 +9,7 @@ export default {
                 home: resolve(__dirname, 'welcome.html'),
                 profile: resolve(__dirname, 'user-profile.html'),
                 createPost: resolve(__dirname, 'create-post.html'),
+                myPost: resolve(__dirname, 'my-post.html'),
             },
         },
     },

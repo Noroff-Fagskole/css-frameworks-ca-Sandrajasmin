@@ -12,14 +12,16 @@ function createHeader() {
         let postDetail;
         if (userName) {
             navLink = `
-            <i class="fa fa-home" style="font-size:24px; color:#5D6AE0">
-                <a href="/index.html" class="${pathname === "/index.html" ? "" : ""}"></a>
-            </i>
-            <i class="fas fa-user-alt ml-2" style="font-size:20px; color:#5D6AE0">
-                <a href="/my-posts.html" class="${pathname === "/my-posts.html" ? "" : ""}"></a>
-            </i>
-            <li class="fas fa-door-open ml-2" style="font-size:20px; color:#5D6AE0"><button id="logout-btn"></button></li>
-            <li class="mt-1 font-light text-white"><span>Hello 👋  ${userName}</span></li>
+            <a href="/index.html" class="${pathname === "/welcome.html" ? "" : ""}">
+              <i class="fa fa-home" style="font-size: 24px; color: #5d6ae0"></i>
+            </a>
+            <a href="/my-post.html" class="${pathname === "/my-post.html" ? "" : ""}">
+              <i class="fas fa-user-alt ml-2" style="font-size: 20px; color: #5d6ae0"></i>
+            </a>
+            <button id="logout-btn">
+                <li class="fas fa-door-open ml-2 mr-4" style="font-size:20px; color:#5D6AE0">
+            </button>
+            <span class="list-none font-light text-white" >Hello 👋  ${userName}</span>
             `
             postDetail = `
             <li class="p-8">
@@ -28,9 +30,9 @@ function createHeader() {
             `
         }
         profileActions.innerHTML = `
-        <ul>
+    
             ${navLink}
-        </ul>
+    
         `
         postDetails.innerHTML = `
         <ul class=" block p-2.5 rounded-md w-full text-center text-sm text-white placeholder-white pl-10" style="background-image: url(/img/pattern.png)">
