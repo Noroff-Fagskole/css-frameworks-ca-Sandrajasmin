@@ -5,7 +5,7 @@ import {getMyToken} from "./utils/storage";
 let now = moment(new Date()); // today's date
 const accessToken = getMyToken();
 
-const postsContainer = document.querySelector("#blog-post");
+const blogPost = document.querySelector("#blog-post");
 const postsNotificationMessage = document.querySelector(".posts__notification");
 
 async function getMyUserPosts() {
@@ -17,8 +17,7 @@ async function getMyUserPosts() {
     })
     if (response.ok) {
         const jsonResponse = await response.json();
-        console.log("GET MY POSTS SUCCEEDED!!  🥳 🤗🤗");
-        postsContainer.innerHTML = "";
+        blogPost.innerHTML = "";
         const {posts} = jsonResponse;
         if (!posts.length) {
             postsNotificationMessage.innerHTML = "Sorry you don't have posts currently";
@@ -28,8 +27,7 @@ async function getMyUserPosts() {
                 const {created} = posts[i];
                 console.log(posts[i])
                 const secondsSinceCreated = now.diff(created, "seconds");
-                postsContainer.innerHTML += `
-
+                blogPost.innerHTML += `
                     <div class="posts__container flex mb-6">
                         <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
                         <div class="post__container--text ml-6">
@@ -61,44 +59,27 @@ async function getMyUserPosts() {
         }
     } else {
         postsNotificationMessage.innerHTML = await response.json()
-        console.log("GET MY POSTS FAILED!!  😥😥😥");
     }
 }
 
 getMyUserPosts().then(() => {
-    handleDeleteBtnsEvents();
+    handleMyDeleteBtnsEvents();
 })
 
-function handleDeleteBtnsEvents() {
-    // API CALL IS DONE AND WE HAVE THE POSTS CREATED WITH DELETE BTNS
-
-    // get all the btns with class
-    let deleteButtons = document.getElementsByClassName('delete-post-btn');
-    console.log("deleteButtons: ", deleteButtons);
-    // assign an event handler for each button
-    const totalNumberOfDeleteBtns = deleteButtons.length
+function handleMyDeleteBtnsEvents() {
+    let deletedButtons = document.getElementsByClassName('delete-post-btn');
+    const totalNumberOfDeleteBtns = deletedButtons.length
     for (let i = 0; i < totalNumberOfDeleteBtns; i++) {
         console.log("the index of each delete BTN", i)
-        deleteButtons[i].addEventListener('click', function () {
-            console.log(`${i} hi, you have triggered click event.`);
-            console.log("this.dataset.postId: ", this.dataset)
-            console.log("this.dataset.postId: ", this.dataset.id);
-            console.log("this.dataset.postId: ", this.getAttribute("data-id"))
+        deletedButtons[i].addEventListener('click', function () {
             const postId = this.dataset.id;
-            //TODO Delete post by id
-            handleDeletePostById(postId);
+            handleMyDeletePostById(postId);
         });
     }
 }
 
-function handleDeletePostById(id) {
-    //TODO delete post by id given
-    console.log(id)
-    console.log("delete post btn clicked ⭕ ⭕ ⭕ !! ")
-    //TODO Refresh page
-    // or go to home page
-    // or loop on the current posts and update then to avoid refresh ** very hard
-    const deleteUserById = async () => {
+function handleMyDeletePostById(id) {
+    const deleteMyUserById = async () => {
         try {
             let response = await fetch(`${DELETE_USER_POST_BY_ID}/${id}`, {
                 method: "DELETE",
@@ -107,21 +88,18 @@ function handleDeletePostById(id) {
                 }
             });
             if (response.status === 200) {
-                console.log("delete post success ⭕ ⭕ ⭕ !! ");
-                getUserPosts().then(() => {
-                    handleDeleteBtnsEvents();
+                getMyUserPosts().then(() => {
+                    handleMyDeleteBtnsEvents();
                 });
 
             } else {
                 const err = await response.json();
                 const message = `Sorry some error ${err}`;
-                //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Error
                 throw Error(message)
             }
         } catch (error) {
-            console.log(error)
         }
     }
-    deleteUserById().then(r => {
+    deleteMyUserById().then(r => {
     });
 }
