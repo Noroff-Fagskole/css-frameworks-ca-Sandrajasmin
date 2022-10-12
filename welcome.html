@@ -11,6 +11,7 @@
     />
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script type="module" src="./js/main.js"></script>
+    <script type="module" src="/js/getPost.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Friendzie | Homepage </title>
@@ -30,145 +31,20 @@
     </nav>
     <main class="mt-10">
       <div class="main max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex justify-between">
-        <div class="main__layout ">
-          <div id="publish__container" class="relative">
-            <!-- <textarea id="message" rows="3" style="background-image: url(/img/pattern.png)" class="block p-2.5 w-full text-sm text-white placeholder-white pl-10 " placeholder="Whats on your mind today?"></textarea> -->
-          </div> 
-          <div class="posts mt-20">
-            <div class="posts__container flex mb-6">
-              <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
-              <div class="post__container--text ml-6">
-                <div class="flex flex-wrap">
-                  <h2 class="font-extraBold text-base mr-6">Sharon Grey</h2>
-                  <p class="font-light text-xs mt-1">25.JUNE 14.32</p>
-                </div>
-                  <p class="font-light max-w-2xl mt-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-                    euismod malesuada pharetra blandit nibh netus. Egestas leo
-                  </p>
+        <div class="main__layout max-w-7xl">
+            <div id="publish__container" class="relative w-full">
+    
+            </div> 
+            <div id="blog-post" class="posts mt-10">
 
-                  <p class="md:hidden font-bold">Read more</p>
-
-                  <p class="sr-only md:not-sr-only font-light max-w-2xl">
-                    vitae velit adipiscing pretium quis. Ipsum id aliquam, dui
-                    tincidunt pulvinar pellentesque egestas tempus, ultrices. Sit
-                    duis diam volutpat tellus imperdiet maecenas facilisis.
-                    Adipiscing cras auctor turpis consequat.
-                  </p>
-              </div>
             </div>
-            <div class="posts__container mb-6 flex">
-              <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
-              <div class="post__container--text ml-6">
-                <div class="flex flex-wrap">
-                  <h2 class="font-extraBold text-base mr-6">Sharon Grey</h2>
-                  <p class="font-light text-xs mt-1">25.JUNE 14.32</p>
+            <div class="flex flex-col gap-y-4 justify-start items-center p-8 h-screen posts">
+                <div class="posts__notification text-3xl text-yellow-500 capitalize">
+
                 </div>
-                  <p class="font-light max-w-2xl mt-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-                    euismod malesuada pharetra blandit nibh netus. Egestas leo
-                  </p>
-
-                  <p class="md:hidden font-bold">Read more</p>
-
-                  <p class="sr-only md:not-sr-only font-light max-w-2xl">
-                    vitae velit adipiscing pretium quis. Ipsum id aliquam, dui
-                    tincidunt pulvinar pellentesque egestas tempus, ultrices. Sit
-                    duis diam volutpat tellus imperdiet maecenas facilisis.
-                    Adipiscing cras auctor turpis consequat.
-                  </p>
-              </div>
             </div>
-            <div class="posts__container mb-6 flex">
-              <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
-              <div class="post__container--text ml-6">
-                <div class="flex flex-wrap">
-                  <h2 class="font-extraBold text-base mr-6">Sharon Grey</h2>
-                  <p class="font-light text-xs mt-1">25.JUNE 14.32</p>
-                </div>
-                  <p class="font-light max-w-2xl mt-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-                    euismod malesuada pharetra blandit nibh netus. Egestas leo
-                  </p>
-
-                  <p class="md:hidden font-bold">Read more</p>
-
-                  <p class="sr-only md:not-sr-only font-light max-w-2xl">
-                    vitae velit adipiscing pretium quis. Ipsum id aliquam, dui
-                    tincidunt pulvinar pellentesque egestas tempus, ultrices. Sit
-                    duis diam volutpat tellus imperdiet maecenas facilisis.
-                    Adipiscing cras auctor turpis consequat.
-                  </p>
-              </div>
-            </div>
-            <div class="posts__container mb-6 flex">
-              <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
-              <div class="post__container--text ml-6">
-                <div class="flex flex-wrap">
-                  <h2 class="font-extraBold text-base mr-6">Sharon Grey</h2>
-                  <p class="font-light text-xs mt-1">25.JUNE 14.32</p>
-                </div>
-                  <p class="font-light max-w-2xl mt-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-                    euismod malesuada pharetra blandit nibh netus. Egestas leo
-                  </p>
-
-                  <p class="md:hidden font-bold">Read more</p>
-
-                  <p class="sr-only md:not-sr-only font-light max-w-2xl">
-                    vitae velit adipiscing pretium quis. Ipsum id aliquam, dui
-                    tincidunt pulvinar pellentesque egestas tempus, ultrices. Sit
-                    duis diam volutpat tellus imperdiet maecenas facilisis.
-                    Adipiscing cras auctor turpis consequat.
-                  </p>
-              </div>
-            </div>
-            <div class="posts__container mb-6 flex">
-              <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
-              <div class="post__container--text ml-6">
-                <div class="flex flex-wrap">
-                  <h2 class="font-extraBold text-base mr-6">Sharon Grey</h2>
-                  <p class="font-light text-xs mt-1">25.JUNE 14.32</p>
-                </div>
-                  <p class="font-light max-w-2xl mt-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-                    euismod malesuada pharetra blandit nibh netus. Egestas leo
-                  </p>
-
-                  <p class="md:hidden font-bold">Read more</p>
-
-                  <p class="sr-only md:not-sr-only font-light max-w-2xl">
-                    vitae velit adipiscing pretium quis. Ipsum id aliquam, dui
-                    tincidunt pulvinar pellentesque egestas tempus, ultrices. Sit
-                    duis diam volutpat tellus imperdiet maecenas facilisis.
-                    Adipiscing cras auctor turpis consequat.
-                  </p>
-              </div>
-            </div>
-            <div class="posts__container mb-6 flex">
-              <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
-              <div class="post__container--text ml-6">
-                <div class="flex flex-wrap">
-                  <h2 class="font-extraBold text-base mr-6">Sharon Grey</h2>
-                  <p class="font-light text-xs mt-1">25.JUNE 14.32</p>
-                </div>
-                  <p class="font-light max-w-2xl mt-3">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-                    euismod malesuada pharetra blandit nibh netus. Egestas leo
-                  </p>
-
-                  <p class="md:hidden font-bold">Read more</p>
-
-                  <p class="sr-only md:not-sr-only font-light max-w-2xl">
-                    vitae velit adipiscing pretium quis. Ipsum id aliquam, dui
-                    tincidunt pulvinar pellentesque egestas tempus, ultrices. Sit
-                    duis diam volutpat tellus imperdiet maecenas facilisis.
-                    Adipiscing cras auctor turpis consequat.
-                  </p>
-              </div>
-            </div>
-          </div>
         </div>
+        <!-- CONTACT  -->
         <div class="main__container--two sr-only lg:not-sr-only">
             <div class="cotainer__profile flex flex-col items-center">
               <img class="max-w-min" src="/img/person1.png" alt="profile picture" />
@@ -181,11 +57,10 @@
                 <div>
                   <p class="ml-2">Christine Jacks</p>
                   <div class="table-row">
-                    <img class="table-cell ml-2 mr-2"
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABmJLR0QA/wD/AP+gvaeTAAAAuklEQVQYlX2OTWoCQRBG31e5hrrwHMH0BNdxNkkET6HnkLmFMCi4cMhO7AzkFomLiMeQ7iz8YWzCvFXx8eqrgoRBPe4O6nE3zXUdst37KBiFoH+J9pE4rd2yuonOv+VI6+YiQIQAMa/dsjIiQpqn0qXFhAoADb9ee6eT/aZSkyD1rE24YuEh2vZxdQD2Ld73Z7Y4GoCk2fnxeyIEBU0BDMA/lRuIOfDTbLKgF/9cfvx7x/lJx/lJJ83/AAwFNiweLLALAAAAAElFTkSuQmCC"
-                    alt="active-status"
-                  />
-                  <p class="font-light table-cell">Active</p>
+                    <img class="table-cell ml-2 mr-2" 
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABmJLR0QA/wD/AP+gvaeTAAAAuklEQVQYlX2OTWoCQRBG31e5hrrwHMH0BNdxNkkET6HnkLmFMCi4cMhO7AzkFomLiMeQ7iz8YWzCvFXx8eqrgoRBPe4O6nE3zXUdst37KBiFoH+J9pE4rd2yuonOv+VI6+YiQIQAMa/dsjIiQpqn0qXFhAoADb9ee6eT/aZSkyD1rE24YuEh2vZxdQD2Ld73Z7Y4GoCk2fnxeyIEBU0BDMA/lRuIOfDTbLKgF/9cfvx7x/lJx/lJJ83/AAwFNiweLLALAAAAAElFTkSuQmCC" 
+                    alt="active-status"/>
+                    <p class="font-light table-cell">Active</p>
                   </div>
                 </div>
               </div>

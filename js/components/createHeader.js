@@ -12,7 +12,7 @@ function createHeader() {
         let postDetail;
         if (userName) {
             navLink = `
-            <a href="/index.html" class="${pathname === "/welcome.html" ? "" : ""}">
+            <a href="/welcome.html" class="${pathname === "/welcome.html" ? "" : ""}">
               <i class="fa fa-home" style="font-size: 24px; color: #5d6ae0"></i>
             </a>
             <a href="/my-post.html" class="${pathname === "/my-post.html" ? "" : ""}">
