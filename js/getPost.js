@@ -10,7 +10,7 @@ if(!accessToken){
     location.href = "/login.html"
 }
 
-(async function getAllPosts() {
+(async function getAllMyPosts() {
     const response = await fetch(GET_POSTS_URL, {
         method: "GET",
         headers: {
@@ -18,22 +18,17 @@ if(!accessToken){
             "Authorization": `Bearer ${accessToken}`
         }
     })
-    console.log("get all posts response: ", response)
     if (response.ok) {
         const posts = await response.json();
-        console.log(posts);
-        console.log("GET POSTS SUCCEEDED!!  🥳 🤗🤗");
         let now = moment(new Date()); //today's date
-        console.log("posts: ",posts)
         if (!posts.length) {
-            postsNotificationMessage.innerHTML = "Sorry no posts currently";
+            postsNotificationMessage.innerHTML = "Sorry there are no posts right now";
         } else {
-            const listOfHtmlPosts = posts.map((post) => {
-                console.log("post: ", post);
-                const postBody = post.body;
-                const postTitle = post.title;
+            const listOfPosts = posts.map((post) => {
+                const postedBody = post.body;
+                const postedTitle = post.title;
                 const createdDate = post.created;
-                const daysSinceCreated = now.diff(createdDate, 'days');
+                const dateCreated = now.diff(createdDate, 'days');
 
                 return (`
                     <a href="/single-post.html?post_id=${post.id}" class="posts__container flex mb-6">
@@ -41,21 +36,20 @@ if(!accessToken){
                         <div class="post__container--text ml-6">
                             <div class="flex flex-wrap">
                                 <h2 class="font-extraBold text-base mr-6">Sharon Grey</h2>
-                                <p class="font-light text-xs mt-1">${daysSinceCreated} d</p>
+                                <p class="font-light text-xs mt-1">${dateCreated} d</p>
                             </div>
                             <p class="font-bold max-w-2xl mt-3">
-                            ${postTitle}
+                            ${postedTitle}
                             </p>
                             <p class="font-light max-w-2xl mt-1 mb-5">
-                            ${postBody}
+                            ${postedBody}
                             </p>
                             
                         </div>
                     </a>
             `)
             }).join('');
-            // Add Posts to the page
-            blogPost.insertAdjacentHTML('beforeend', listOfHtmlPosts);
+            blogPost.insertAdjacentHTML('beforeend', listOfPosts);
         }
 
     } else {
@@ -64,7 +58,5 @@ if(!accessToken){
         throw new Error(message)
     }
 })().catch(err => {
-    console.log("GET POSTS FAILED!!  😥😥😥");
-    console.log(err);
     postsNotificationMessage.innerHTML = err
 });
