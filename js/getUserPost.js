@@ -26,14 +26,14 @@ async function getMyUserPosts() {
             for (let i = 0; i < numberOfPosts; i++) {
                 const {created} = posts[i];
                 console.log(posts[i])
-                const secondsSinceCreated = now.diff(created, "days", "minutes");
+                const secondsSinceCreated = now.diff(created, "01/12/2016");
                 blogPost.innerHTML += `
                     <div class="posts__container flex mb-6">
                         <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
                         <div class="post__container--text ml-6">
                             <div class="flex flex-wrap">
                                 <h2 class="font-extraBold text-base mr-6">Sharon Grey</h2>
-                                <p class="font-light text-xs mt-1">${secondsSinceCreated} days</p>
+                                <p class="font-light text-xs mt-1">${secondsSinceCreated} s ago</p>
                             </div>
                             <p class="font-bold max-w-2xl mt-3">
                                 ${posts[i].title}

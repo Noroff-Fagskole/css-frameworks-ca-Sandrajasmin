@@ -14,6 +14,8 @@ const GET_POST_BY_ID_URL = API_BASE_URL + "api/v1/social/posts"
 const GET_USER_POSTS_URL = API_BASE_URL + `api/v1/social/profiles/${userName}?_posts=true`
 const DELETE_USER_POST_BY_ID = API_BASE_URL + `api/v1/social/posts`
 const EDIT_POST_URL = API_BASE_URL + "api/v1/social/posts"
+const SORT_ASC_URL = API_BASE_URL + "api/v1/social/posts?sort=created&sortOrder=asc";
+const GET_PROFILE = API_BASE_URL + `api/v1/social/profiles/${userName}`
 
 export {
     API_BASE_URL,
@@ -24,5 +26,7 @@ export {
     GET_USER_POSTS_URL,
     DELETE_USER_POST_BY_ID,
     GET_POST_BY_ID_URL,
-    EDIT_POST_URL
+    EDIT_POST_URL,
+    SORT_ASC_URL,
+    GET_PROFILE
 };
