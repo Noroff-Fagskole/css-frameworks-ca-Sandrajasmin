@@ -9,7 +9,8 @@ module.exports = {
       darkblue: '#131837',
       darkblue2: '#1C2146',
       lightblue: '#5D6AE0',
-      purple: '#6371EC',
+      purple: '#4A5BF0',
+      darkPurple: '',
       red: '#EB2323'
     },
     borderRadius: {

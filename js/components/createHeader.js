@@ -4,7 +4,8 @@ function createHeader() {
     const {pathname} = document.location;
     //const profileDetails = document.querySelector("#profile-details");
     const profileIcons = document.querySelector("#nav__links");
-    const postDetails = document.querySelector("#publish__container")
+    const postDetails = document.querySelector("#publish__container");
+    const profileName = document.querySelector("#profile-container");
     if (profileIcons, postDetails) {
         const userName = getMyUserName();
         //let profileLinks;
@@ -44,8 +45,16 @@ function createHeader() {
             `
             postDetail = `
             <li class="p-8">
-                <a href="/create-post.html" class="font-regular ${pathname === "/create-post.html" ? "" : ""}">Create a new post</a>
+                <a href="/create-post.html" class="font-regular ${pathname === "/create-post.html" ? "" : ""}"><h1 class="">Hi ${userName}, What are you thinking about today?</h1><p>Create a new post</p></a>
             </li>
+            `
+            userNick = `
+            <img
+              class="max-w-min"
+              src="/img/person1.png"
+              alt="profile picture"
+            />
+            <h2 id="username" class="mt-6 mb-6">${userName}</h2>
             `
 
         }
@@ -56,6 +65,9 @@ function createHeader() {
         <ul class=" block p-2.5 rounded-md w-full text-center text-sm text-white placeholder-white pl-10" style="background-image: url(/img/pattern.png)">
             ${postDetail}
         </ul>
+        `
+        profileName.innerHTML = `
+        ${userNick}
         `
     }
 }
