@@ -23,7 +23,6 @@ You are tasked with creating 3 pages in HTML using Bootstrap or Tailwind or SASS
 
 5. Submission for this project will follow the pattern used in professional development. 
 
-
 # Process
 
 ## Please use vite for this Assignment
