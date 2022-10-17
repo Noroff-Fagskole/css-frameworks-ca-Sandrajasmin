@@ -1,10 +1,13 @@
 import moment from "moment";
-
 import {SORT_ASC_URL, GET_POSTS_URL} from "./settings/api";
 import {getMyToken} from "./utils/storage";
 
 const blogPost = document.querySelector("#blog-post");
 const postsNotificationMessage = document.querySelector(".posts__notification")
+const postDetails = document.querySelector("#publish__container");
+
+
+
 const accessToken = getMyToken();
 let data = [];
 
