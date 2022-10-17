@@ -5,12 +5,9 @@ import {getMyToken} from "./utils/storage";
 const blogPost = document.querySelector("#blog-post");
 const postsNotificationMessage = document.querySelector(".posts__notification")
 const postDetails = document.querySelector("#publish__container");
-
-
-
-const accessToken = getMyToken();
 let data = [];
 
+const accessToken = getMyToken();
 if(!accessToken){
     location.href = "/login.html"
 }
@@ -33,17 +30,28 @@ async function getAllMyPosts() {
     }
 };
 
-
 const newestPostBTN = document.querySelector("#new-post-btn");
-console.log(newestPostBTN);
 const oldestPostBTN = document.querySelector("#old-post-btn");
-console.log(oldestPostBTN);
 
 const postContainerAsc = document.querySelector("#postAsc-container");
 
 oldestPostBTN.addEventListener("click", () => {
-  getPostAsc();
+    removeNewPost();
+    getPostAsc();
 });
+
+const removeOldPost = () => {
+    postContainerAsc.classList.add("hidden");
+};
+  
+newestPostBTN.addEventListener("click", () => {
+    removeOldPost();
+    getAllMyPosts();
+});
+
+const removeNewPost = () => {
+    blogPost.classList.add("hidden");
+}
 
 const getPostAsc = async () => {
   try {
@@ -84,7 +92,6 @@ const getPostAsc = async () => {
                             
                         </div>
                     </a>
-
         `;
         });
         postContainerAsc.classList.remove("hidden");
@@ -127,6 +134,7 @@ function displayPost (data) {
             `)
             }).join('');
             blogPost.insertAdjacentHTML('beforeend', listOfPosts);
+            blogPost.classList.remove("hidden")
         }
         
 }
@@ -135,20 +143,12 @@ getAllMyPosts().then(() =>{
 })
 
 
-const removeOldPopst = () => {
-  postContainerAsc.classList.add("hidden");
-};
-
-newestPostBTN.addEventListener("click", () => {
-  removeOldPopst();
-});
-
 const searchBar = document.querySelector("#search");
 
 searchBar.addEventListener("keyup", (e) => {
   const searchString = e.target.value.toLowerCase();
   const filteredPosts = data.filter((post) => {
-    return post.title.toLowerCase().includes(searchString);
+    return post.title.toLowerCase().includes(searchString) || post.body.toLowerCase().includes(searchString) ;
   });
   displayPost(filteredPosts);
 });
