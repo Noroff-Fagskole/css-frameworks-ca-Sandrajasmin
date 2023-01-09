@@ -1,25 +1,23 @@
-import {getMyToken} from "./utils/storage";
-import {GET_POST_BY_ID_URL} from "./settings/api";
+import { getMyToken } from './utils/storage';
+import { GET_POST_BY_ID_URL } from './settings/api';
 
 const paramString = window.location.search;
 const searchParam = new URLSearchParams(paramString);
-const postId = searchParam.get("post_id");
+const postId = searchParam.get('post_id');
 const accessToken = getMyToken();
-const singlePost = document.getElementById("blog-post");
-
-
+const singlePost = document.getElementById('blog-post');
 
 async function getMyPostById() {
-    const response = await fetch(`${GET_POST_BY_ID_URL}/${postId}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`
-        }
-    })
-    const data = await response.json();
-    const {title, body, created, updated, id} = data;
-    singlePost.innerHTML = `
+  const response = await fetch(`${GET_POST_BY_ID_URL}/${postId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const data = await response.json();
+  const { title, body, created, updated, id } = data;
+  singlePost.innerHTML = `
                 <div class="posts__container flex mb-6">
                     <img class="post__container--img max-w-min" src="/img/person1.png" alt="profile picture" />
                     <div>
@@ -47,8 +45,7 @@ async function getMyPostById() {
                     </div> 
                     </div> 
                 </div>
-    `
+    `;
 }
 
 getMyPostById();
-

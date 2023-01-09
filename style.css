@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        font-family: inter, sans-serif;
-    }
+  html {
+    font-family: inter, sans-serif;
+  }
 
-    h1 {
-      font-size: 16px;
-      color: white;  
-    }
+  h1 {
+    font-size: 16px;
+    color: white;
+  }
 
-    h2 {
-        font-size: 16px;
-        font-weight: 400;
-        color: white;
-    }
+  h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+  }
 
-    p {
-        font-size: 12px;
-        color: white;
-    }
+  p {
+    font-size: 12px;
+    color: white;
+  }
 }

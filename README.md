@@ -7,6 +7,7 @@
 To apply knowledge of Bootstrap, Tailwind and SASS to build a responsive front end for a social media application.
 
 # Brief
+
 You are tasked with creating 3 pages in HTML using Bootstrap or Tailwind or SASS:
 
 - Homepage
@@ -21,7 +22,7 @@ You are tasked with creating 3 pages in HTML using Bootstrap or Tailwind or SASS
 
 4. You will only be working on the visuals for this project at this stage, forms do not need to submit data, for example.
 
-5. Submission for this project will follow the pattern used in professional development. 
+5. Submission for this project will follow the pattern used in professional development.
 
 # Process
 
@@ -40,3 +41,37 @@ Complete the approved Pull Request, or implement the required changes
 # https://tailwindcss.com/
 
 # https://getbootstrap.com/docs/5.2/getting-started/vite/
+
+# LECTURE
+
+## 1. set up prettier
+
+npm install --save-dev --save-exact prettier (Prettier is an NPM package used to apply standardized code formatting to your project files. We can install Prettier as a devDependency)
+
+echo {}> .prettierrc.json (create file in repo)
+
+add to gitignore add
+    dist
+    node_modules
+    .packed-lock.json
+    _.min._
+
+add to package.json
+    "pretty": "npx prettier --write .",
+
+Example from moodle
+npx prettier -c src/js/joker.js (To test that the installation was successful)
+
+npx prettier -w src/js/joker.js (Now we can run Prettier with the write flag enabled)
+
+## 2. We can copy and paste this command into the package file as a custom task
+
+    {
+    "scripts": {
+        "test": "node src/js/joker.js",
+        "format": "prettier -w src/js/joker.js"
+    },
+    }
+
+Run the command "npm run" format to check if this task is working as expected
+Run "npm version patch" to update the version number.
